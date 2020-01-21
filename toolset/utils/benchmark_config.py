@@ -45,6 +45,7 @@ class BenchmarkConfig:
         self.pipeline_concurrency_levels = args.pipeline_concurrency_levels
         self.query_levels = args.query_levels
         self.parse = args.parse
+        self.share_results_uri = args.share_results_uri
         self.results_environment = args.results_environment
         self.results_name = args.results_name
         self.results_upload_uri = args.results_upload_uri

@@ -210,6 +210,26 @@ class Results:
             except Exception:
                 log("Error uploading results.json")
 
+    def share(self):
+        '''
+        If share_results_uri is set in the config, attempts to upload the
+        results.json to that URI.
+        '''
+        if self.config.share_results_uri is not None:
+            try:
+                response = requests.post(
+                    self.config.share_results_uri,
+                    headers={'Content-Type': 'application/json'},
+                    data=json.dumps(self.__to_jsonable()),
+                    timeout=300)
+
+                share_results_info = response.json()
+                log('Successfully uploaded results for sharing!')
+                log('The raw results.json can be accessed at: %s' % share_results_info['resultsUrl'])
+                log('The results can be visualized at: %s' % share_results_info['visualizeResultsUrl'])
+            except Exception as e:
+                log("Error sharing results.json: %s" % str(e))
+
     def load(self):
         '''
         Load the results.json file

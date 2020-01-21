@@ -72,6 +72,7 @@ class Benchmarker:
 
         self.results.set_completion_time()
         self.results.upload()
+        self.results.share()
         self.results.finish()
 
         return any_failed

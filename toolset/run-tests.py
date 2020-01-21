@@ -109,6 +109,11 @@ def main(argv=None):
         help=
         'Parses the results of the given timestamp and merges that with the latest results'
     )
+    parser.add_argument(
+        '--share-results-uri',
+        default=None,
+        help='A URI where the results.json file will be POSTed once the run completes'
+    )
 
     # Test options
     parser.add_argument(
