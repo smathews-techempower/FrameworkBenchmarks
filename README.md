@@ -85,17 +85,19 @@ Results of continuous benchmarking runs are available in real time [here](https:
 
 ### Sharing Results
 
-You can share your run by having this toolset upload your results after it completes:
+You can share your run by having this toolset upload your results after it completes.
 
-        $ ./tfb --mode benchmark [other arguments] --share-results-uri https://tfb-status.techempower.com/share-results/upload
+It is recommended that you also specify a name and environment description that will appear on the shared results visualization website.
+
+        $ ./tfb --mode benchmark \
+                --results-name "My Results - %Y-%m-%d %H:%M:%S" \
+                --results-environment "Dell R440 Xeon Gold + 10 GbE" \
+                --share-results-uri https://tfb-status.techempower.com/share/upload \
+                [other arguments]
 
 After the run completes and successfully uploads the results, it will print out a publicly accessible URL to download the raw results.json file, as well as a publicly accessible URL that can be used to visualize the results of the run.
 
-You can also visit https://tfb-status.techempower.com/share-results/pastebin to upload or paste previously generated results.json files and generate the same public URLs.
-
-### Data Visualization
-
-If you have a `results.json` file that you would like to visualize, you can [do that here](https://www.techempower.com/benchmarks/#section=test). You can also attach a `runid` parameter to that url where `runid` is a run listed on [tfb-status](https://tfb-status.techempower.com) like so: https://www.techempower.com/benchmarks/#section=test&runid=fd07b64e-47ce-411e-8b9b-b13368e988c6
+You can also visit https://tfb-status.techempower.com/share to upload or paste previously generated results.json files and generate the same public URLs. Or, if you would rather host your results file yourself using your own server, or would like to visualize results locally without sharing, please go [here](http://teweb.tcs.techempower.com/benchmarks/#section=test).
 
 ## Contributing
 

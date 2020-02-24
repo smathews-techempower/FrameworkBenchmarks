@@ -228,7 +228,13 @@ class Results:
                 log('The raw results.json can be accessed at: %s' % share_results_info['resultsUrl'])
                 log('The results can be visualized at: %s' % share_results_info['visualizeResultsUrl'])
             except Exception as e:
-                log("Error sharing results.json: %s" % str(e))
+                placeholder_results_path = os.path.join(
+                    "path/to/results", self.config.timestamp, os.path.basename(self.file))
+                log('Error sharing results.json: %s' % str(e))
+                log('Verify that you have the correct share-results-uri, ' +
+                    'and/or retry sharing with the following command (changing the URI if necessary):')
+                log('curl -X POST -H "Content-Type: application/json" -d @' +
+                    '%s %s' % (placeholder_results_path, self.config.share_results_uri))
 
     def load(self):
         '''
