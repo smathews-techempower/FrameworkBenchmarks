@@ -2,7 +2,6 @@
 namespace controllers;
 
 use Ubiquity\orm\DAO;
-use models\World;
 
 /**
  * Bench controller.
@@ -39,7 +38,7 @@ class SwooleDb extends \Ubiquity\controllers\Controller {
 		for ($i = 0; $i < $queries; ++ $i) {
 			$world = DAO::executePrepared('world', [
 				'id' => \mt_rand(1, 10000)
-			], false);
+			]);
 			$world->randomNumber = \mt_rand(1, 10000);
 			DAO::toUpdate($world);
 			$worlds[] = $world->_rest;
