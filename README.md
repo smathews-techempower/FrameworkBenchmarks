@@ -99,6 +99,12 @@ After the run completes and successfully uploads the results, it will print out 
 
 You can also visit https://tfb-status.techempower.com/share to upload or paste previously generated results.json files and generate the same public URLs. Or, if you would rather host your results file yourself using your own server, or would like to visualize results locally without sharing, please go [here](http://teweb.tcs.techempower.com/benchmarks/#section=test).
 
+If you are performing a hardware performance test, you must at least test the TPR frameworks:
+
+        $ ./tfb --mode benchmark \
+                --test aspcore django express laravel phoenix rails spring drogon gin actix \
+                [other arguments]
+
 ## Contributing
 
 The community has consistently helped in making these tests better, and we welcome any and all changes. Reviewing our contribution practices and guidelines will help to keep us all on the same page. The [contribution guide](https://github.com/TechEmpower/FrameworkBenchmarks/wiki/Development-Contributing-Guide) can be found in the [TFB documentation](https://github.com/TechEmpower/FrameworkBenchmarks/wiki).
